@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="count" class="form-control text-center" value="0">
+                           <button id="plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="price">00</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minus1" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="count1"  class="form-control text-center" value="0">
+                           <button id="plus1" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="price1">00</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="subtotal">00</span></h5>
+                        <h5>$<span id="tax">00</span></h5>
+                        <h5>$<span id="total">00</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+   <script>
+    //operation of plus button
+      var plusButton=document.getElementById("plus");
+       plusButton.addEventListener("click",function(){
+       var plusInc=document.getElementById("count").value++;
+        var price=document.getElementById("price").innerText;
+        var phonePrice=parseFloat(price);
+        var totalPrice=phonePrice+1219;
+        document.getElementById("price").innerText=totalPrice;
+
+        var subtotal=document.getElementById("subtotal").innerText;
+      var  subtotal1=parseFloat(subtotal);
+
+        var subtotal1=phonePrice+1219;
+
+        document.getElementById("subtotal").innerText=subtotal1;
+
+
+        var tax=document.getElementById("tax").innerText;
+        tax1=parseFloat(tax);
+        taxPrice=subtotal1*0.05;
+        document.getElementById("tax").innerText=taxPrice;
+
+
+      var total=  document.getElementById("total").innerText;
+
+      total1=parseFloat(total);
+      total1=taxPrice+subtotal1;
+      document.getElementById("total").innerText=total1;
+
+
+        
+        
+
+
+
+        
+       
+       })
+
+
+
+       
+
+       //operation of plus1 button
+       var plusButton1=document.getElementById("plus1");
+       plusButton1.addEventListener("click",function(){
+          console.log("plus1 button clicked");
+          var plusInc1=document.getElementById("count1").value++;
+          var price1=document.getElementById("price1").innerText;
+          var casingPrice=parseFloat(price1);
+          var totalPrice1=casingPrice+59;
+          document.getElementById("price1").innerText=totalPrice1;
+
+        
+          var subtotal=document.getElementById("subtotal").innerText;
+        subtotal1=parseFloat(subtotal);
+
+        var subtotal1=casingPrice+59;
+        document.getElementById("subtotal").innerText=subtotal1;
+
+
+        var tax=document.getElementById("tax").innerText;
+        tax1=parseFloat(tax);
+        taxPrice=subtotal1*0.05;
+        document.getElementById("tax").innerText=taxPrice;
+
+
+      var total=  document.getElementById("total").innerText;
+
+      total1=parseFloat(total);
+      total1=taxPrice+subtotal1;
+      document.getElementById("total").innerText=total1;
+
+
+        
+        
+       })
+
+
+
+     //operation of minus button
+     var minusButton=document.getElementById("minus");
+     minusButton.addEventListener("click",function(){
+     var minusInc=document.getElementById("count").value--;
+     var price3=document.getElementById("price").innerText;
+     var phonePrice1=parseFloat(price3);
+     var totalPrice3=phonePrice1-1219;
+     document.getElementById("price").innerText=totalPrice3;
+     if(document.getElementById("count").value<"0")
+     {
+        document.getElementById("count").value="0";
+        document.getElementById("price").innerText="0";
+
+     }
+
+     var subtotal=document.getElementById("subtotal").innerText;
+        subtotal1=parseFloat(subtotal);
+
+        var subtotal1=phonePrice1-1219;
+        document.getElementById("subtotal").innerText=subtotal1;
+
+
+        var tax=document.getElementById("tax").innerText;
+        tax1=parseFloat(tax);
+        taxPrice=subtotal1*0.05;
+        document.getElementById("tax").innerText=taxPrice;
+
+
+      var total=  document.getElementById("total").innerText;
+
+      total1=parseFloat(total);
+      total1=taxPrice+subtotal1;
+      document.getElementById("total").innerText=total1;
+
+
+
+     })
+
+
+
+
+     //operation of minus1 button
+     var minusButton1=document.getElementById("minus1");
+      minusButton1.addEventListener("click",function(){
+         console.log("minus1 button clicked");
+         var minusInc1=document.getElementById("count1").value--;
+         var price4=document.getElementById("price1").innerText;
+         var casingPrice1=parseFloat(price4);
+         var totalPrice4=casingPrice1-59;
+         document.getElementById("price1").innerText=totalPrice4;
+         
+         if(document.getElementById("count1").value<"0")
+         {
+            document.getElementById("count1").value="0";
+            document.getElementById("price1").innerText="0";
+         }
+
+         var subtotal=document.getElementById("subtotal").innerText;
+        subtotal1=parseFloat(subtotal);
+
+        var subtotal1=casingPrice1-59;
+        document.getElementById("subtotal").innerText=subtotal1;
+
+
+        var tax=document.getElementById("tax").innerText;
+        tax1=parseFloat(tax);
+        taxPrice=subtotal1*0.05;
+        document.getElementById("tax").innerText=taxPrice;
+
+
+      var total=  document.getElementById("total").innerText;
+
+      total1=parseFloat(total);
+      total1=taxPrice+subtotal1;
+      document.getElementById("total").innerText=total1;
+
+
+        
+
+
+      })
+       
+       
+      
+
+
+
+
+
+
+   </script>
+</body>
+
+</html>
